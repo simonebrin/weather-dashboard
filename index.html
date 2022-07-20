@@ -10,25 +10,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
       
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="jumbotron jumbotron-fluid">
-      <h2 class="text-center">Weather Dashboard</h2>
-    </div>
-  
-    <div class="container">
-      <div class="row">
-        <!-- card for search button and displaying searched cities name -->
-        <div class="col-lg-4">
-          <div class="card" id="search-cities"> 
-            <div class="card-header"> 
-              <h6>Search for a City:</h6>
-                <form class="form-inline pb-2">
-                  <input type="text" class="form-control mr-2" id="search-input">
-                  <button type="submit" class="btn btn-primary" id="search-btn">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </form>
     
+</head>
+<body class="flex-column min-100-vh">
+    <header class="hero">
+      <h1 class="app-title"><i class="fas fa-sun"></i> Weather Dashboard</h1>
+    </header>
+  
+  
+    <main class="flex-row justify-space-between">
+      <div class="col-12 col-md-4"></div>
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search By City</h3>
+        <form id="city-form" class="card-body">
+          <label class="form-label" for="cityname">City Name</label>
+          <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn">Get Weather</button>
+        </form>
+      </div>
+      <script src="./assets/js/script.js"></script>
 </body>
 </html>
