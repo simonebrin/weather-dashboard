@@ -24,7 +24,7 @@ function getWeatherData(city) {
     const day = dateOf.getDate();
     const month = dateOf.getMonth() + 1;
     const year = dateOf.getFullYear();
-    cityName.innerHTML = month + "/" + day + "/" + year;
+    cityName.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
     let tempIcon = response.data.weather[0].icon;
     currentWeatherImg.setAttribute(
       "src",
