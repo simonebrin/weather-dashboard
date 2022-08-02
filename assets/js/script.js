@@ -13,7 +13,7 @@ let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 function getWeatherData(city) {
   let apiUrl =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     apiKey;
