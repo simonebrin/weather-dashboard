@@ -17,7 +17,7 @@ function getWeatherData(city) {
     city +
     "&appid=" +
     apiKey;
-  axios.get(apiUrl).then(function (response) {
+  axios.get(apiUrl).then(function(response) {
     console.log(response.data);
     const dateOf = new Date(response.data.dt * 1000);
     console.log(dateOf);
@@ -60,7 +60,7 @@ function getWeatherData(city) {
       "&appid=" +
       apiKey;
     axios.get(forecastQueryURL).then(function (response) {
-      //  Parse response to display forecast for next 5 days underneath current conditions
+      //  Dissect response to display forecast for next 5 days underneath current conditions
       const forecastEls = document.querySelectorAll(".forecast");
       for (i = 0; i < forecastEls.length; i++) {
         forecastEls[i].innerHTML = "";
@@ -106,9 +106,10 @@ function getWeatherData(city) {
           "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
         forecastEls[i].append(forecastHumidityEl);
       }
-    });
+    })
   });
 }
+// Convert kelvin to farenheit
 function k2f(K) {
   return Math.floor((K - 273.15) * 1.8 + 32);
 }
@@ -117,14 +118,13 @@ function renderSearchHistory() {
   historyList.innerHTML = "";
   for (let i = 0; i < searchHistory.length; i++) {
       const historyItem = document.createElement("input");
-      // <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com"></input>
       historyItem.setAttribute("type", "text");
       historyItem.setAttribute("style", "margin-bottom: 10px;")
       historyItem.setAttribute("readonly", true);
       historyItem.setAttribute("class", "form-control d-block bg-grey");
       historyItem.setAttribute("value", searchHistory[i]);
       historyItem.addEventListener("click", function() {
-          getWeather(historyItem.value);
+          getWeatherData(historyItem.value);
       })
       historyList.append(historyItem);
   }
@@ -134,7 +134,8 @@ renderSearchHistory();
 if (searchHistory.length > 0) {
   getWeatherData(searchHistory[searchHistory.length - 1]);
 }
-// getWeatherData(city);
+
+// getWeatherData(city) click function;
 searchBtn.addEventListener("click", function () {
   const searchCity = input.value;
   getWeatherData(searchCity);
